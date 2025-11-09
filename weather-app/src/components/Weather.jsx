@@ -25,9 +25,9 @@ const Weather = () => {
 
   }
 
-  const Search = async (city) => {
+  const Search = async () => {
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=&appid=295c9de93ddfa0a2498fd78610369db4`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=295c9de93ddfa0a2498fd78610369db4`;
 
       const response = await fetch(url);
       const data = await response.json();
