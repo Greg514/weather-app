@@ -4,9 +4,23 @@
     box-sizing: border-box;
 }
 
+.title{
+    color:white;
+    font-size:100px;
+    position:relative;
+    left:500px;
+    top:500px;
+}
+
 .App{
     min-height: 100vh;
     display:grid;
-    background-color:black;
+    background-image:url("./assets/nattu-adnan-atSUvc1hMwk-unsplash.jpg");
+    background-position:center;
+    background-size: contain;
+    background-repeat: no-repeat;
     
+}
+body{
+    background-color: black;
 }
