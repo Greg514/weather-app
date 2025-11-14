@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
+import axios from "axios";
 import "./Weather.css";
+
 import search from "../assets/weather-icons/icons8-search-48.png";
 import sun from "../assets/weather-icons/icons8-sun-48.png";
 import cloudy from "../assets/weather-icons/icons8-cloudy-48.png";
@@ -27,14 +29,11 @@ const Weather = () => {
   const inputRef = useRef();
 
   const Search = useCallback(async (city = "") => {
-    if(city === ""){
-        alert("please enter city name");
-        return;
-    }
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=295c9de93ddfa0a2498fd78610369db4`;
-      const response = await fetch(url);
-      const data = await response.json();
+
+      const response = await axios.get(url);
+      const data = response.data;
 
       if (!data.weather || !data.main) {
         console.error("City not found or invalid response:", data);
@@ -56,7 +55,7 @@ const Weather = () => {
   }, []);
 
   useEffect(() => {
-    Search(); 
+    Search("Toronto"); // default load city (optional)
   }, [Search]);
 
   return (
@@ -84,6 +83,7 @@ const Weather = () => {
                 <span>Humidity</span>
               </div>
             </div>
+
             <div className="col">
               <img src={wind} alt="wind" />
               <div>
