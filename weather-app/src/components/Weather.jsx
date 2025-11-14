@@ -55,7 +55,7 @@ const Weather = () => {
   }, []);
 
   useEffect(() => {
-    Search("Toronto"); // default load city (optional)
+    Search("Toronto"); 
   }, [Search]);
 
   return (
